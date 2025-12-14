@@ -1,13 +1,13 @@
 {
     "start_paused": false,
-    "imu_upside_down": false,
+    "imu_upside_down": true,
     "phase_frequency_factor_offset": 0.0,
     "expression_features": {
-        "eyes": false,
-        "projector": false,
-        "antennas": false,
-        "speaker": false,
-        "microphone": false,
+        "eyes": true,
+        "projector": true,
+        "antennas": true,
+        "speaker": true,
+        "microphone": true,
         "camera": false
     },
     "joints_offsets": {
