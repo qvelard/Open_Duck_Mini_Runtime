@@ -5,6 +5,13 @@ Find the offsets to set in self.joints_offsets in hwi_feetech_pwm_control.py
 from mini_bdx_runtime.rustypot_position_hwi import HWI
 from mini_bdx_runtime.duck_config import DuckConfig
 import time
+import argparse
+
+# Parse command line arguments
+parser = argparse.ArgumentParser(description='Find soft offsets for robot joints')
+parser.add_argument('--port', type=str, default='/dev/ttyACM0',
+                    help='USB port for the robot (default: /dev/ttyACM0)')
+args = parser.parse_args()
 
 dummy_config = DuckConfig(config_json_path=None, ignore_default=True)
 
@@ -12,13 +19,14 @@ print("======")
 print(
     "Warning : this script will move the robot to its zero position quiclky, make sure it is safe to do so"
 )
+print(f"Using port: {args.port}")
 print("======")
 print("")
 input(
     "Press any key to start. The robot will move to its zero position. Make sure it is safe to do so. At any time, press ctrl+c to stop, the motors will be turned off."
 )
 
-hwi = HWI(dummy_config)
+hwi = HWI(dummy_config, usb_port=args.port)
 
 
 hwi.init_pos = hwi.zero_pos
