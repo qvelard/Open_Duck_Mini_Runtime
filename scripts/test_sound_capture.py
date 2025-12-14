@@ -15,8 +15,6 @@ sys.path.insert(0, parent_dir)
 
 from mini_bdx_runtime.mini_bdx_runtime.sounds import Sounds
 
-
-
 def test_single_wav(wav_path, volume=1.0):
     """
     Test playing a single WAV file
