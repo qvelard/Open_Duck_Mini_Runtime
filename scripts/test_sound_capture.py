@@ -10,9 +10,11 @@ import pygame
 import time
 
 # Add parent directory to path to import mini_bdx_runtime
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+parent_dir = os.path.join(os.path.dirname(__file__), '..')
+sys.path.insert(0, parent_dir)
 
-from mini_bdx_runtime.sounds import Sounds
+from mini_bdx_runtime.mini_bdx_runtime.sounds import Sounds
+
 
 
 def test_single_wav(wav_path, volume=1.0):
